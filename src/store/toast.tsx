@@ -1,4 +1,4 @@
-import { atom } from "recoil";
+import {atom, selector} from "recoil";
 
 export interface Toast {
     id?: string;
@@ -9,10 +9,14 @@ export interface Toast {
 
 const toastState = atom<Toast[]>({
     key: 'toastState',
-    default: [{
-        id: "initial value",
-        content : "init data"
-    }]
+    default: []
 });
 
-export { toastState };
+const toastSelector = selector({
+    key: 'toastSelector',
+    get: ({get}) => {
+        return get(toastState);
+    },
+})
+
+export { toastState, toastSelector };
