@@ -1,35 +1,23 @@
 import {useRecoilState, useRecoilValue} from "recoil";
-import {toastSelector, toastState} from "@/store/toast";
+import {toastState} from "@/store/toast";
 import useToast from "@/components/hooks/useToast";
 
 
 export default function Home() {
     const [ toasts, setToast ] = useRecoilState(toastState);
-    const toastList = useRecoilValue(toastSelector);
 
     const { addToast } = useToast();
-    const setData =()=> addToast({ content:'hello'})
-    const getData =()=> addToast({ content:'hello',duration:7000})
+    const setData =()=> addToast({ content:'initial value'})
+    const clipboard =()=> addToast({ content:'링크가 클립보드에 복사되었습니다.',duration:3000})
+    const getData =()=> addToast({ content:'안녕하세요 Toast 말풍선 입니다',duration:7000})
     console.log(toasts)
 
-    const returnList = () => {
-      return toastList.map( toastData => (
-          <div
-            key={toastData.id}
-          >
-              <div>{toastData.id}</div>
-              <div>{toastData.content}</div>
-              <div>{toastData.duration}</div>
-          </div>
-      ))
-    }
-
     return (
-    <div>
-      <div>init</div>
+    <div className='top-div'>
+        <div>test button</div>
         <button onClick={setData}>button</button>
+        <button onClick={clipboard}>clip</button>
         <button onClick={getData}>7s</button>
-        {returnList()}
     </div>
   )
 }
