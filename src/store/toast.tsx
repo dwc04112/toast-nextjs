@@ -5,6 +5,7 @@ export interface Toast {
     content: string;
     duration?: number;
     bottom?: number;
+    isTop?: boolean;
 }
 
 const toastState = atom<Toast[]>({

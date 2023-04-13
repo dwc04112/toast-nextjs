@@ -11,10 +11,9 @@ const useToast = () => {
     }
     const addToast = (toast : Toast) => {
         toast.id = getToastId()
-        setData((prev) => [...prev, {...toast, id: toast.id}])
+        setData((prev) => [...prev, {...toast, id: toast.id, isTop: (toast.isTop ?? false) }])
         setTimeout(() => removeToast(toast.id), 600 + (toast.duration ?? 1000))
     }
-
     return {data, addToast}
 }
 
