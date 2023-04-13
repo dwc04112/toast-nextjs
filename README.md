@@ -24,4 +24,4 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Learn More
 
-그냥 라이브러리 쓰는게 좋을것 같습니다
+Toast는 그냥 라이브러리 쓰는게 좋을것 같습니다
